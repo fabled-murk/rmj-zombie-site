@@ -1,4 +1,4 @@
-> Tracked in Linear: project **rmj** — https://linear.app/fabled-cat/project/rmj-81ca62a90a57
+> Tracked in Linear (internal project `rmj`).
 > Repo: https://github.com/fabled-murk/rmj-zombie-site
 
 # fabled-zombie-site — backlog
