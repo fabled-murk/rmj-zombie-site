@@ -35,7 +35,43 @@ a{color:inherit}
 }
 .brand{display:flex;align-items:center;gap:.6rem;font-size:1.15rem;text-decoration:none}
 .brand-thin{color:var(--orange-deep)}
-.brand-mark{width:26px;height:26px;background:var(--orange);border:var(--bd);box-shadow:3px 3px 0 var(--ink);display:inline-block}
+/* animated zombie mark */
+.brand-mark{
+  width:34px;height:34px;flex:0 0 34px;background:var(--orange);border:var(--bd);
+  box-shadow:3px 3px 0 var(--ink);display:block;overflow:hidden;line-height:0;
+}
+.zmark{width:100%;height:100%;display:block}
+.zmark-bg{fill:var(--orange)}
+.zmark-skull{fill:var(--ink)}
+.zmark-white{fill:var(--paper)}
+.zmark-pupil{fill:var(--ink)}
+.zmark-teeth{fill:var(--paper)}
+.zmark-gap{stroke:var(--ink);stroke-width:2.5;fill:none}
+.zmark-scar{stroke:var(--orange);stroke-width:2.5;fill:none;stroke-linecap:square}
+.zmark-drip{fill:var(--toxic)}
+.zmark-head,.zmark-jaw,.zmark-eye,.zmark-pupil,.zmark-drip{transform-box:fill-box;transform-origin:center}
+.zmark-head{animation:z-shamble 3.4s ease-in-out infinite}
+.zmark-jaw{transform-origin:top center;animation:z-chomp 3.4s ease-in-out infinite}
+.zmark-eye-l{animation:z-blink 3.4s steps(1,end) infinite}
+.zmark-eye-r{animation:z-blink 3.4s steps(1,end) infinite .4s}
+.zmark-pupil{animation:z-dart 3.4s ease-in-out infinite}
+.zmark-drip{transform-origin:top center;animation:z-drool 6.8s ease-in infinite}
+.brand:hover .zmark-head,.brand:focus-visible .zmark-head{animation-duration:.9s}
+.brand:hover .zmark-jaw,.brand:focus-visible .zmark-jaw{animation-duration:.45s}
+@keyframes z-shamble{
+  0%,100%{transform:rotate(-4deg) translateY(0)}
+  25%{transform:rotate(3deg) translateY(-1.5px)}
+  50%{transform:rotate(-2deg) translateY(1px)}
+  75%{transform:rotate(4deg) translateY(-1px)}
+}
+@keyframes z-chomp{0%,62%,100%{transform:scaleY(1)}72%{transform:scaleY(.35)}82%{transform:scaleY(1.15)}}
+@keyframes z-blink{0%,88%{transform:scaleY(1)}90%,94%{transform:scaleY(.08)}96%{transform:scaleY(1)}}
+@keyframes z-dart{0%,30%{transform:translateX(0)}40%,60%{transform:translateX(-2.5px)}70%,100%{transform:translateX(2px)}}
+@keyframes z-drool{0%,74%{transform:translateY(0) scale(.5);opacity:0}82%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(9px) scale(.65);opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  .zmark-head,.zmark-jaw,.zmark-eye,.zmark-pupil,.zmark-drip{animation:none!important}
+  .zmark-drip{opacity:0}
+}
 .nav nav{margin-left:auto;display:flex;gap:1.4rem;font-weight:700;font-size:.95rem}
 .nav nav a{text-decoration:none;padding:.15rem 0;border-bottom:3px solid transparent}
 .nav nav a:hover{border-bottom-color:var(--orange)}
